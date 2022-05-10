@@ -1,1 +1,2 @@
-# Telecom_Industry_User_Analytic-
+# Telecom_Industry_User_Analytic
+This repo is used to analyse a telecommunication dataset that contains useful information about the customers & their activities on the network. And will be used to deliver insights that is managed to extract through an easy-to-use web-based dashboard. 
