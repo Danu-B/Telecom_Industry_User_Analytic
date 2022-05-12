@@ -23,8 +23,16 @@ class Cleaner:
         print("This dataset contains", round(((totalMissing/totalCells) * 100), 2), "%", "missing values.")
     
     
+   
+    # fill the forward value 
     def fix_missing_ffill(df, col):
         df[col] = df[col].fillna(method='ffill')
+        return df[col]
+
+    
+    # fill the backward value 
+    def fix_missing_bfill(df, col):
+        df[col] = df[col].fillna(method='bfill')
         return df[col]
     
     
@@ -37,13 +45,16 @@ class Cleaner:
     def convert_to_datetime(df, columns):
         for col in columns:
             df[col] = pd.to_datetime(df[col])
-    
+            return df 
     
     def convert_to_int(df, columns):
         for col in columns:
             df[col] = df[col].astype("int64")
-            
             return df
+        
+    def convert_to_string(df, columns):
+        for col in columns:
+            df[col] = df[col].astype("string")
         
     # drop columns with more than 30% missing values
     def drop_missing_value(df, col):
@@ -53,16 +64,5 @@ class Cleaner:
         
         return mod_df
     
-    
-    # fill the forward value 
-    def fix_missing_ffill(df, col):
-        df[col] = df[col].fillna(method='ffill')
-        return df[col]
-
-    
-    # fill the backward value 
-    def fix_missing_bfill(df, col):
-        df[col] = df[col].fillna(method='bfill')
-        return df[col]
     
     
