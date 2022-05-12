@@ -22,7 +22,6 @@ class Cleaner:
         # Calculate percentage of missing values
         print("This dataset contains", round(((totalMissing/totalCells) * 100), 2), "%", "missing values.")
     
-    
    
     # fill the forward value 
     def fix_missing_ffill(df, col):
@@ -63,6 +62,5 @@ class Cleaner:
         mod_df = df.dropna( axis=1, thresh=min_count)
         
         return mod_df
-    
     
     
