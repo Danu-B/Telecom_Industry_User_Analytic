@@ -1,9 +1,11 @@
 import pandas as pd
 import numpy as np
 import os
+import sys
 
+sys.path.append(os.path.abspath(os.path.join('../scripts')))
 
-class Cleaner:
+class Cleaner():
     
     def __init__(self):
         pass
