@@ -10,7 +10,7 @@ class Cleaner():
     def __init__(self):
         pass
     
-    def percent_missing(df):
+    def percent_missing(self,df):
     
         # Calculate total number of cells in dataframe
         totalCells = np.product(df.shape)
@@ -23,6 +23,17 @@ class Cleaner():
     
         # Calculate percentage of missing values
         print("This dataset contains", round(((totalMissing/totalCells) * 100), 2), "%", "missing values.")
+        
+        
+    def fix_missing_value(df, col, value):
+            
+        count = df[col].isna().sum()
+        df[col] = df[col].fillna(value)
+        if type(value) == 'str':
+            print(f"{count} missing values in the column {col} have been replaced by '{value}'.")
+        else:
+            print(f"{count} missing values in the column {col} have been replaced by {value}.")
+        return df[col]
     
    
     # fill the forward value 
